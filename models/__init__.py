@@ -19,8 +19,9 @@ def setup(opt):
     elif opt.dataset_type == 'classification':
         from models.classification.QDNN import QDNN
         from models.classification.MLLM import MLLM
-        from models.classification.SentiMLLM import SentiMLLM
+        from models.classification.SentiQDNN import SentiQDNN
         from models.classification.CNN import TextCNN
+        from models.classification.MLP import MLP
         from models.classification.LSTM import TextLSTM
         from models.classification.FastText import FastText
         from models.classification.ComplexFastText import ComplexFastText
@@ -37,8 +38,8 @@ def setup(opt):
         model = LocalMixtureNN(opt)
     elif opt.network_type == "mllm":
         model = MLLM(opt)
-    elif opt.network_type == "sentimllm":
-        model = SentiMLLM(opt)
+    elif opt.network_type == "sentiqdnn":
+        model = SentiQDNN(opt)
     elif opt.network_type == "cnn":
         model = TextCNN(opt)
     elif opt.network_type == "lstm":
@@ -49,6 +50,8 @@ def setup(opt):
         model = ComplexFastText(opt)
     elif opt.network_type == "sentifasttext":
         model = SentiFastText(opt) 
+    elif opt.network_type == "mlp":
+        model = MLP(opt) 
         
     elif opt.network_type == "bert":
         from models.representation.keras.BertFasttext import BERTFastext

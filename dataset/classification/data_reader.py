@@ -38,6 +38,9 @@ class DataReader(object):
         print('loading word embedding...')
         self.embedding.get_embedding(dataset_name = self.dataset_name, fname=opt.wordvec_path)
         self.opt_callback(opt) 
+        
+
+            
     
     def opt_callback(self,opt):
         opt.nb_classes = self.nb_classes            
